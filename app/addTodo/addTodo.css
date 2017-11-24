@@ -1,0 +1,18 @@
+.hd-add-todo {
+    display: flex;
+    margin-bottom: 24px;
+}
+
+.hd-add-todo__input {
+    width: 80%;
+    padding: 8px;
+    font-size: 14px;
+}
+
+.hd-add-todo__button {
+    width: 20%;
+    background-color: #212121;
+    color: #E8E8E8;
+    border: none;
+    font-size: 14px;
+}

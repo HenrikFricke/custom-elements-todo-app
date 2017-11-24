@@ -1,0 +1,13 @@
+.hf-todo-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.hf-todo-list__item {
+    background-color: #F2F2F2;
+    padding: 24px 16px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 16px;
+}

@@ -1,0 +1,10 @@
+.hf-header {
+    display: block;
+    background-color: #E8E8E8;
+    padding: 16px;
+    text-align: center;
+}
+
+.hf-header__headline {
+    font-size: 24px;
+}
