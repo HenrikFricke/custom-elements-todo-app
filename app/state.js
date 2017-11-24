@@ -4,7 +4,9 @@ class State {
             items: []
         }
 
-        this.subscriber = [];
+        this.subscriber = []
+
+        this.loadFromStorage()
     }
 
     getTodoItems() {
@@ -13,13 +15,18 @@ class State {
 
     addTodoItem(item) {
         this.state.items.push(item)
-        this.triggerSubscriber()
+        this.update()
     }
 
     removeTodoItem(item) {
         const index = this.state.items.findIndex(i => i === item)
         this.state.items.splice(index, 1)
+        this.update()
+    }
+
+    update() {
         this.triggerSubscriber()
+        this.persist()
     }
 
     subscribe(listener) {
@@ -28,6 +35,19 @@ class State {
 
     triggerSubscriber() {
         this.subscriber.forEach((listener) => listener.call())
+    }
+
+    loadFromStorage() {
+        const storage = window.localStorage.getItem('state')
+
+        if (storage) {
+            this.state = JSON.parse(storage)
+            this.update()
+        }
+    }
+
+    persist() {
+        window.localStorage.setItem('state', JSON.stringify(this.state))
     }
 }
 
